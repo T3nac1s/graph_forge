@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+if(NOT TARGET graph_forge::graph_forge)
+  include("${CMAKE_CURRENT_LIST_DIR}/graph_forgeTargets.cmake")
+endif()
+
+check_required_components(graph_forge)
