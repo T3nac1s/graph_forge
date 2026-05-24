@@ -1,0 +1,28 @@
+{
+  "name": "graph-forge",
+  "version-string": "0.1.0",
+  "description": "A robust, header-only C++20 graph algorithm library forged for competitive programming",
+  "homepage": "https://github.com/graph-forge/graph_forge",
+  "license": "MIT",
+  "dependencies": [
+    {
+      "name": "gtest",
+      "version>=": "1.15.2",
+      "features": [
+        "gtest_main"
+      ],
+      "platform": "!(windows & static)"
+    }
+  ],
+  "features": {
+    "tests": {
+      "description": "Build unit tests",
+      "dependencies": [
+        "gtest"
+      ]
+    }
+  },
+  "default-features": [
+    "tests"
+  ]
+}

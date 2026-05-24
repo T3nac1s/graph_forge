@@ -1,0 +1,9 @@
+{
+  "registries": [
+    {
+      "kind": "filesystem",
+      "path": "./ports",
+      "packages": ["graph-forge"]
+    }
+  ]
+}

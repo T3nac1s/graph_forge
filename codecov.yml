@@ -1,0 +1,9 @@
+coverage:
+  status:
+    project:
+      default: false
+      threshold: 0%
+  ignore:
+    - "tests/"
+    - "build/"
+    - ".cache/"

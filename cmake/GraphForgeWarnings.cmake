@@ -1,0 +1,23 @@
+option(GRAPH_FORGE_WARNINGS_AS_ERRORS
+       "Treat compiler warnings as errors" OFF)
+
+function(graph_forge_apply_warnings target)
+  get_target_property(target_type ${target} TYPE)
+  if(target_type STREQUAL "INTERFACE_LIBRARY")
+    set(scope INTERFACE)
+  else()
+    set(scope PRIVATE)
+  endif()
+
+  if(MSVC)
+    target_compile_options(${target} ${scope} /W4 /permissive-)
+    if(GRAPH_FORGE_WARNINGS_AS_ERRORS)
+      target_compile_options(${target} ${scope} /WX)
+    endif()
+  else()
+    target_compile_options(${target} ${scope} -Wall -Wextra -Wpedantic)
+    if(GRAPH_FORGE_WARNINGS_AS_ERRORS)
+      target_compile_options(${target} ${scope} -Werror)
+    endif()
+  endif()
+endfunction()
